@@ -1,0 +1,1413 @@
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+
+body{
+
+font-family:'Poppins',sans-serif;
+color:#4a3b40;
+background:#fffafc;
+
+}
+
+
+h1,h2,h3{
+
+font-family:'Playfair Display',serif;
+
+}
+
+
+/* ==========================
+BARRA SUPERIOR
+========================== */
+
+.top-bar{
+
+background:#f8dfe8;
+padding:12px;
+text-align:center;
+font-size:14px;
+color:#6d4c55;
+
+}
+
+
+/* ==========================
+HEADER
+========================== */
+
+
+header{
+
+height:90px;
+padding:0 8%;
+display:flex;
+align-items:center;
+justify-content:space-between;
+background:white;
+position:sticky;
+top:0;
+z-index:10;
+box-shadow:0 5px 20px rgba(0,0,0,.05);
+
+}
+
+
+.logo img{
+
+width:130px;
+
+}
+
+
+nav{
+
+display:flex;
+gap:35px;
+
+}
+
+
+nav a{
+
+text-decoration:none;
+color:#4a3b40;
+font-size:15px;
+
+}
+
+
+nav a:hover{
+
+color:#d98aa4;
+
+}
+
+
+.carrito-btn{
+
+background:#d98aa4;
+color:white;
+border:none;
+padding:13px 25px;
+border-radius:30px;
+cursor:pointer;
+
+}
+
+
+/* ==========================
+HERO
+========================== */
+
+
+.hero-img img{
+
+width:50%;
+border-radius:20px;
+
+}
+
+
+.hero-text{
+
+width:50%;
+
+}
+
+
+.marca{
+
+color:#d98aa4;
+letter-spacing:3px;
+font-size:14px;
+
+}
+
+
+.hero h1{
+
+font-size:55px;
+line-height:1.2;
+margin:25px 0;
+
+}
+
+
+.hero p{
+
+line-height:1.8;
+color:#777;
+
+}
+
+
+.hero button{
+
+margin-top:30px;
+padding:16px 40px;
+border:none;
+border-radius:30px;
+background:#d98aa4;
+color:white;
+font-size:16px;
+cursor:pointer;
+
+}
+
+
+.hero-img{
+
+width:45%;
+
+}
+
+
+.hero-img img{
+
+width:100%;
+border-radius:35px;
+
+}
+
+
+
+/* ==========================
+CATEGORIAS
+========================== */
+
+
+.categorias{
+
+padding:70px 8%;
+text-align:center;
+
+}
+
+
+.categorias h2,
+.productos h2{
+
+font-size:40px;
+margin-bottom:40px;
+
+}
+
+
+.categoria-grid{
+
+display:flex;
+justify-content:center;
+gap:30px;
+
+}
+
+
+.categoria{
+
+background:white;
+padding:35px;
+border-radius:30px;
+width:300px;
+box-shadow:0 10px 30px rgba(0,0,0,.06);
+
+}
+
+
+
+/* ==========================
+PRODUCTOS
+========================== */
+
+
+.productos{
+
+padding:80px 8%;
+
+}
+
+
+.productos-grid{
+
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:35px;
+
+}
+
+
+.card{
+
+background:white;
+padding:30px;
+border-radius:30px;
+text-align:center;
+box-shadow:0 10px 30px rgba(0,0,0,.07);
+
+}
+
+
+.card img{
+
+width:80%;
+height:250px;
+object-fit:contain;
+
+}
+
+
+.card h3{
+
+font-size:25px;
+margin:15px;
+
+}
+
+
+.card strong{
+
+display:block;
+font-size:22px;
+margin:15px;
+color:#d98aa4;
+
+}
+
+
+.btn-producto{
+
+display:inline-block;
+background:#d98aa4;
+color:white;
+padding:14px 35px;
+border-radius:40px;
+text-decoration:none;
+font-size:15px;
+font-weight:500;
+margin-top:15px;
+transition:.3s;
+
+}
+
+
+.btn-producto:hover{
+
+background:#c97894;
+transform:translateY(-3px);
+
+}/* ==========================
+PAGINA DE PRODUCTO
+========================== */
+
+
+.producto-detalle{
+
+display:flex;
+align-items:center;
+gap:70px;
+padding:90px 10%;
+background:#fffafc;
+
+}
+
+
+.producto-imagen{
+
+width:45%;
+text-align:center;
+
+}
+
+
+.producto-imagen img{
+
+width:80%;
+max-height:500px;
+object-fit:contain;
+
+}
+
+
+.producto-info{
+
+width:45%;
+
+}
+
+
+.producto-info h1{
+
+font-size:48px;
+margin:20px 0;
+
+}
+
+
+.producto-info h3{
+
+color:#777;
+font-weight:400;
+
+}
+
+
+
+.precio-producto{
+
+color:#d98aa4;
+font-size:35px;
+margin:25px 0;
+
+}
+
+
+
+.btn-comprar,
+.btn-carrito{
+
+display:block;
+width:300px;
+padding:17px;
+border:none;
+border-radius:40px;
+margin:15px 0;
+cursor:pointer;
+font-size:16px;
+font-weight:500;
+text-align:center;
+text-decoration:none;
+transition:.3s;
+
+}
+
+
+
+.btn-comprar{
+
+background:#d98aa4;
+color:white;
+
+}
+
+
+
+.btn-carrito{
+
+background:#4a3b40;
+color:white;
+
+}
+
+
+
+.btn-comprar:hover,
+.btn-carrito:hover{
+
+transform:translateY(-3px);
+opacity:.9;
+
+}
+
+
+
+
+/* ==========================
+INFORMACION PRODUCTO
+========================== */
+
+
+.info-producto{
+
+padding:80px 15%;
+background:white;
+
+}
+
+
+.info-producto h2{
+
+font-size:35px;
+margin:50px 0 20px;
+text-align:center;
+
+}
+
+
+.info-producto p{
+
+line-height:1.8;
+color:#666;
+font-size:17px;
+text-align:center;
+
+}
+
+
+
+/* BENEFICIOS */
+
+
+.beneficios-producto{
+
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:25px;
+margin-top:30px;
+
+}
+
+
+.beneficios-producto div{
+
+background:#fff3f7;
+padding:25px;
+border-radius:25px;
+text-align:center;
+
+}
+
+
+
+
+/* PASOS COMPRA */
+
+
+.pasos-compra{
+
+display:flex;
+justify-content:center;
+gap:30px;
+margin-top:40px;
+
+}
+
+
+
+.pasos-compra div{
+
+background:#fffafc;
+padding:30px;
+border-radius:25px;
+width:250px;
+text-align:center;
+
+}
+
+
+.pasos-compra span{
+
+display:inline-flex;
+width:45px;
+height:45px;
+border-radius:50%;
+background:#d98aa4;
+color:white;
+align-items:center;
+justify-content:center;
+font-size:20px;
+
+}
+
+
+
+/* ==========================
+FAQ
+========================== */
+
+
+.faq-producto{
+
+padding:70px 10%;
+background:#fffafc;
+
+}
+
+
+
+.faq-grid{
+
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:25px;
+
+}
+
+
+
+.faq-card{
+
+background:white;
+padding:30px;
+border-radius:25px;
+box-shadow:0 10px 25px rgba(0,0,0,.05);
+
+}
+
+
+
+.faq-card h3{
+
+font-size:20px;
+margin-bottom:15px;
+
+}
+
+
+
+.faq-card p{
+
+color:#666;
+line-height:1.6;
+
+}
+
+
+
+/* ==========================
+RELACIONADOS
+========================== */
+
+
+.relacionados{
+
+padding:80px 10%;
+text-align:center;
+
+}
+
+
+
+.relacionados-grid{
+
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:25px;
+
+}
+
+
+
+.producto-mini{
+
+background:#fff3f7;
+padding:30px;
+border-radius:25px;
+
+}
+
+
+
+.producto-mini a{
+
+display:inline-block;
+margin-top:15px;
+background:#d98aa4;
+color:white;
+padding:10px 25px;
+border-radius:25px;
+text-decoration:none;
+
+}
+
+
+
+/* ==========================
+CARRITO
+========================== */
+
+
+.carrito-seccion{
+
+padding:70px 10%;
+background:white;
+
+}
+
+
+.carrito-seccion h2{
+
+text-align:center;
+font-size:40px;
+margin-bottom:40px;
+
+}
+
+
+
+.producto-carrito{
+
+background:#fff3f7;
+padding:20px;
+margin:15px auto;
+border-radius:20px;
+max-width:500px;
+
+}
+
+
+.producto-carrito h3{
+
+margin-bottom:10px;
+
+}/* ==========================
+MISIÓN VERA GLOW
+========================== */
+
+
+.mision{
+
+padding:80px 15%;
+background:#fff0f5;
+text-align:center;
+
+}
+
+
+.mision h2{
+
+font-size:40px;
+margin-bottom:35px;
+
+}
+
+
+.mision p{
+
+color:#666;
+line-height:1.8;
+font-size:17px;
+margin:20px auto;
+max-width:800px;
+
+}
+
+
+
+/* ==========================
+MAS VENDIDOS
+========================== */
+
+
+.mas-vendidos{
+
+padding:80px 8%;
+background:#fffafc;
+text-align:center;
+
+}
+
+
+.mas-vendidos h2{
+
+font-size:40px;
+margin-bottom:40px;
+
+}
+
+
+
+/* ==========================
+CONFIANZA
+========================== */
+
+
+.confianza{
+
+padding:80px 8%;
+background:white;
+text-align:center;
+
+}
+
+
+.confianza h2{
+
+font-size:40px;
+margin-bottom:40px;
+
+}
+
+
+
+.confianza-grid{
+
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:30px;
+
+}
+
+
+
+.confianza-card{
+
+background:#fff3f7;
+padding:35px;
+border-radius:30px;
+
+}
+
+
+
+.confianza-card h3{
+
+font-size:22px;
+margin-bottom:15px;
+
+}
+
+
+
+.confianza-card p{
+
+color:#666;
+line-height:1.7;
+
+}
+
+
+
+/* ==========================
+PROMOCION APERTURA
+========================== */
+
+
+.promo-apertura{
+
+background:#f8dfe8;
+padding:35px 10%;
+text-align:center;
+
+}
+
+
+.promo-apertura h2{
+
+font-size:35px;
+margin-bottom:15px;
+
+}
+
+
+.promo-apertura p{
+
+color:#6d4c55;
+font-size:18px;
+
+}
+
+
+.promo-apertura strong{
+
+display:block;
+margin:15px;
+font-size:20px;
+color:#d98aa4;
+
+}
+
+
+.promo-apertura a{
+
+display:inline-block;
+background:#d98aa4;
+color:white;
+padding:12px 30px;
+border-radius:30px;
+text-decoration:none;
+
+}
+
+
+
+/* ==========================
+WHATSAPP FLOTANTE
+========================== */
+
+
+.whatsapp-flotante{
+
+position:fixed;
+
+bottom:25px;
+
+right:25px;
+
+width:60px;
+
+height:60px;
+
+background:#25D366;
+
+color:white;
+
+border-radius:50%;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+font-size:30px;
+
+text-decoration:none;
+
+z-index:99999;
+
+box-shadow:0 5px 20px rgba(0,0,0,.2);
+
+}
+
+
+
+.whatsapp-flotante:hover{
+
+transform:scale(1.1);
+
+}
+
+
+
+/* ==========================
+CELULAR
+========================== */
+
+
+@media(max-width:768px){
+
+
+
+header{
+
+height:70px;
+padding:10px 15px;
+flex-direction:row;
+gap:0;
+
+}
+
+
+.logo img{
+
+width:90px;
+
+}
+
+
+
+nav{
+
+display:none;
+
+}
+
+
+
+.carrito-btn{
+
+padding:10px 18px;
+font-size:14px;
+
+}
+
+
+
+.hero{
+
+flex-direction:column;
+text-align:center;
+padding:50px 5%;
+
+}
+
+
+
+.hero-text,
+.hero-img{
+
+width:100%;
+
+}
+
+
+
+.hero h1{
+
+font-size:38px;
+
+}
+
+
+
+.categoria-grid{
+
+flex-direction:column;
+align-items:center;
+
+}
+
+
+
+.productos-grid{
+
+grid-template-columns:repeat(2,1fr);
+gap:15px;
+
+}
+
+
+
+.card{
+
+padding:15px;
+
+}
+
+
+
+.card img{
+
+height:150px;
+
+}
+
+
+
+.card h3{
+
+font-size:18px;
+
+}
+
+
+
+.confianza-grid{
+
+grid-template-columns:1fr;
+
+}
+
+
+
+.producto-detalle{
+
+flex-direction:column;
+padding:50px 5%;
+
+}
+
+
+
+.producto-imagen,
+.producto-info{
+
+width:100%;
+text-align:center;
+
+}
+
+
+
+.producto-info h1{
+
+font-size:35px;
+
+}
+
+
+
+.beneficios-producto,
+.faq-grid,
+.relacionados-grid{
+
+grid-template-columns:1fr;
+
+}
+
+
+
+.pasos-compra{
+
+flex-direction:column;
+align-items:center;
+
+}
+
+
+
+.mision{
+
+padding:60px 8%;
+
+}
+
+
+}.contacto{
+padding:80px 10%;
+text-align:center;
+}
+
+.contacto h2{
+font-size:40px;
+margin-bottom:20px;
+}
+
+.contacto p{
+font-size:18px;
+color:#666;
+}/* ==========================
+PLANES VERA GLOW
+========================== */
+
+
+.planes{
+
+padding:80px 8%;
+
+background:#fff0f5;
+
+text-align:center;
+
+}
+
+
+
+.planes h2{
+
+font-size:40px;
+
+margin-bottom:20px;
+
+}
+
+
+
+.planes-intro{
+
+color:#666;
+
+font-size:17px;
+
+margin-bottom:40px;
+
+}
+
+
+
+.planes-grid{
+
+display:grid;
+
+grid-template-columns:repeat(3,1fr);
+
+gap:30px;
+
+}
+
+
+
+.plan-card{
+
+background:white;
+
+padding:35px;
+
+border-radius:30px;
+
+box-shadow:0 10px 30px rgba(0,0,0,.06);
+
+}
+
+
+
+.plan-card h3{
+
+font-size:25px;
+
+margin-bottom:20px;
+
+}
+
+
+
+.plan-card p{
+
+color:#666;
+
+line-height:1.7;
+
+}
+
+
+
+.plan-card strong{
+
+display:block;
+
+font-size:28px;
+
+color:#d98aa4;
+
+margin:25px;
+
+}
+
+
+
+.plan-card a{
+
+display:inline-block;
+
+background:#d98aa4;
+
+color:white;
+
+padding:14px 30px;
+
+border-radius:30px;
+
+text-decoration:none;
+
+}
+
+
+
+.planes-final{
+
+margin-top:40px;
+
+color:#666;
+
+}
+
+
+
+@media(max-width:768px){
+
+.planes-grid{
+
+grid-template-columns:1fr;
+
+}
+
+}/*==========================
+BANNER APERTURA
+==========================*/
+
+.banner-apertura{
+
+background:linear-gradient(90deg,#f8d7e3,#fdeef4);
+
+padding:45px 10%;
+
+text-align:center;
+
+}
+
+.banner-apertura h2{
+
+font-size:38px;
+
+color:#d46a92;
+
+margin-bottom:15px;
+
+font-family:'Playfair Display',serif;
+
+}
+
+.banner-apertura p{
+
+font-size:18px;
+
+color:#555;
+
+max-width:700px;
+
+margin:auto;
+
+margin-bottom:25px;
+
+line-height:1.7;
+
+}
+
+.btn-banner{
+
+display:inline-block;
+
+background:#d46a92;
+
+color:white;
+
+padding:15px 35px;
+
+border-radius:40px;
+
+text-decoration:none;
+
+font-weight:600;
+
+transition:.3s;
+
+}
+
+.btn-banner:hover{
+
+background:#bf5b80;
+
+transform:translateY(-2px);
+
+}/*==========================
+BANNER APERTURA
+==========================*/
+
+.banner-apertura{
+
+background:linear-gradient(90deg,#f8d7e3,#fdeef4);
+
+padding:45px 10%;
+
+text-align:center;
+
+}
+
+.banner-contenido{
+
+max-width:900px;
+
+margin:auto;
+
+}
+
+.banner-apertura h2{
+
+font-size:42px;
+
+font-family:'Playfair Display',serif;
+
+color:#d46a92;
+
+margin-bottom:20px;
+
+}
+
+.banner-apertura p{
+
+font-size:18px;
+
+line-height:1.8;
+
+color:#555;
+
+margin-bottom:30px;
+
+}
+
+.btn-banner{
+
+display:inline-block;
+
+background:#d46a92;
+
+color:white;
+
+padding:16px 40px;
+
+border-radius:50px;
+
+font-weight:600;
+
+text-decoration:none;
+
+transition:.3s;
+
+}
+
+.btn-banner:hover{
+
+background:#bf5b80;
+
+transform:translateY(-3px);
+
+}/*==========================
+ETIQUETAS PRODUCTOS
+==========================*/
+
+.badge{
+
+display:inline-block;
+
+padding:8px 18px;
+
+border-radius:30px;
+
+font-size:13px;
+
+font-weight:700;
+
+margin-bottom:15px;
+
+color:white;
+
+}
+
+.vendido{
+
+background:#ff6b6b;
+
+}
+
+.nuevo{
+
+background:#7d5fff;
+
+}
+
+.recomendado{
+
+background:#2ecc71;
+
+}
+
+.oferta{
+
+background:#ff9f43;
+
+}/*==========================
+COMPRA CON CONFIANZA
+==========================*/
+
+.confianza{
+padding:80px 10%;
+text-align:center;
+background:#fff7fa;
+}
+
+.confianza h2{
+font-size:40px;
+margin-bottom:40px;
+color:#4b3b42;
+}
+
+.confianza-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:25px;
+}
+
+.confianza-grid div{
+background:white;
+padding:30px;
+border-radius:20px;
+box-shadow:0 10px 25px rgba(0,0,0,.08);
+}
+
+.confianza-grid h3{
+margin-bottom:15px;
+}
