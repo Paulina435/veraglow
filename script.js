@@ -233,12 +233,11 @@ function comprarMercadoPago(){
     );
 
 async function comprarMercadoPago() {
-    // 1. Verificar si el carrito tiene productos (usando la variable local)
+    // 1. Verificar si el carrito tiene productos
     if (!carrito || carrito.length === 0) {
         alert("Tu carrito está vacío");
         return;
-    }
-
+    
     // 2. Mapear tus productos al formato de Mercado Pago
     const itemsDelCarrito = carrito.map(prod => ({
         title: prod.nombre,       
