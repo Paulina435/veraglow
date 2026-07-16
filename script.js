@@ -300,7 +300,7 @@ async function comprarMercadoPago() {
 
     try {
         // 3. Llamar a tu función en Netlify
-        const response = await fetch('/.netlify/functions/crear-preference', {
+        const response = await fetch('/.netlify/functions/crear-preferencia.', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
