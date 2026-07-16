@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>¡Gracias por tu compra! - VERA GLOW</title>
+  <style>
+    body {
+      background-color: #fffafc;
+      font-family: 'Poppins', sans-serif;
+      text-align: center;
+      color: #4a3b40;
+      padding: 50px 20px;
+      margin: 0;
+    }
+    .contenedor-gracias {
+      max-width: 500px;
+      margin: 0 auto;
+      background: white;
+      padding: 40px 30px;
+      border-radius: 20px;
+      border: 1px solid #f3e5eb;
+      box-shadow: 0 4px 15px rgba(74, 59, 64, 0.05);
+    }
+    h1 {
+      font-size: 1.8rem;
+      margin-bottom: 10px;
+      color: #4a3b40;
+    }
+    p {
+      font-size: 1rem;
+      color: #7d6870;
+      line-height: 1.6;
+    }
+    .btn-inicio {
+      display: inline-block;
+      margin-top: 25px;
+      padding: 12px 30px;
+      background-color: #e2d1d8;
+      color: #4a3b40;
+      text-decoration: none;
+      border-radius: 25px;
+      font-weight: 500;
+      transition: background 0.3s;
+    }
+    .btn-inicio:hover {
+      background-color: #d6bfc8;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="contenedor-gracias">
+    <div style="font-size: 4rem; margin-bottom: 20px;">✨</div>
+    <h1>¡Tu pago ha sido confirmado!</h1>
+    <p>Muchas gracias por comprar en <strong>VERA GLOW</strong>. Tu pedido ya está siendo procesado con amor y cuidado.</p>
+    <p style="font-size: 0.9rem; margin-top: 15px; color: #a38b95;">Se abrirá un mensaje automático de confirmación para enviarlo a nuestro WhatsApp.</p>
+    <a href="index.html" class="btn-inicio">Volver a la tienda</a>
+  </div>
+
+  <script>
+    window.onload = function() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const status = urlParams.get('status');
+        const nombre = urlParams.get('nombre');
+        const telefono = urlParams.get('telefono');
+        const direccion = urlParams.get('direccion');
+
+        if (status === 'success' && nombre && telefono) {
+            const mensaje = `✨ *PAGO CONFIRMADO - MERCADO PAGO* ✨\n\n` +
+                            `¡Hola VERA GLOW! Acabo de completar mi pago con tarjeta:\n\n` +
+                            `👤 *Cliente:* ${nombre}\n` +
+                            `📞 *Teléfono:* ${telefono}\n` +
+                            `📍 *Dirección de envío:* ${direccion}\n\n` +
+                            `💳 *Estado del pago:* Aprobado por Mercado Pago.`;
+
+            const tuNumeroWhatsApp = "564345896"; // Tu número de WhatsApp configurado
+            const urlWhatsApp = `https://wa.me/${tuNumeroWhatsApp}?text=${encodeURIComponent(mensaje)}`;
+            
+            // Abre el WhatsApp de confirmación automáticamente
+            window.open(urlWhatsApp, '_blank');
+        }
+    };
+  </script>
+</body>
+</html>
