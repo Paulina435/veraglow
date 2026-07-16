@@ -94,7 +94,7 @@ function mostrarCarrito(){
 
     carrito.forEach((producto,index)=>{
 
-        let totalProducto=producto.precio*producto.cantidad;
+        let totalProducto = producto.precio * (producto.cantidad || 1);
 
         subtotal+=totalProducto;
 
@@ -110,7 +110,7 @@ function mostrarCarrito(){
 
                 <button onclick="disminuirCantidad(${index})">−</button>
 
-                <span>${producto.cantidad}</span>
+               <span>${producto.cantidad || 1}</span>
 
                 <button onclick="aumentarCantidad(${index})">+</button>
 
