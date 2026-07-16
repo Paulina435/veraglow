@@ -232,23 +232,22 @@ function comprarMercadoPago(){
         "_blank"
     );
 
-}async function comprarMercadoPago() {
-    // 1. Obtener los productos que están guardados en tu carrito local
-    // Si tu variable se llama diferente (como 'carrito'), cambia 'carrito' por el nombre correcto.
-    if (!window.carrito || window.carrito.length === 0) {
+async function comprarMercadoPago() {
+    // 1. Verificar si el carrito tiene productos (usando la variable local)
+    if (!carrito || carrito.length === 0) {
         alert("Tu carrito está vacío");
         return;
     }
 
-    // 2. Mapear tus productos al formato que pide Mercado Pago
-    const itemsDelCarrito = window.carrito.map(prod => ({
-        title: prod.nombre,       // Nombre del producto (ej: ACXION)
-        quantity: prod.cantidad,   // Cantidad elegida
-        unit_price: Number(prod.precio) // Precio unitario como número
+    // 2. Mapear tus productos al formato de Mercado Pago
+    const itemsDelCarrito = carrito.map(prod => ({
+        title: prod.nombre,       
+        quantity: prod.cantidad,   
+        unit_price: Number(prod.precio) 
     }));
 
     try {
-        // 3. Llamar a la función que creamos en Netlify
+        // 3. Llamar a tu función en Netlify
         const response = await fetch('/.netlify/functions/crear-preferencia', {
             method: 'POST',
             headers: {
@@ -263,15 +262,13 @@ function comprarMercadoPago(){
         const data = await response.json();
         
         if (data.id) {
-            // 4. Redirigir al cliente a la página de pago segura de Mercado Pago
-            // Nota: Para que funcione de forma nativa sin SDK completo en el front, 
-            // la forma más limpia y directa es usar el init_point que genera Mercado Pago:
+            // 4. Redirigir al checkout seguro
             window.location.href = `https://www.mercadopago.com.mx/checkout/v1/redirect?pref_id=${data.id}`;
         } else {
             alert("Hubo un error al procesar el pago. Intenta de nuevo.");
         }
     } catch (error) {
         console.error("Error al conectar con Mercado Pago:", error);
-        alert(" No se pudo conectar con la pasarela de pagos.");
+        alert("No se pudo conectar con la pasarela de pagos.");
     }
 }
