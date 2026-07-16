@@ -165,7 +165,7 @@ function mostrarCarrito(){
 
 <div class="acciones-carrito" style="display: flex; flex-direction: column; gap: 10px;">
   <button onclick="comprarMercadoPago()" class="btn-pago btn-mercadopago" style="width: 100%; padding: 12px; border: none; border-radius: 25px; background: #4a3b40; color: white; font-weight: 500; cursor: pointer;">
-     Animar y Pagar con Mercado Pago
+     Pagar de forma segura (tarjeta/Oxxo/transferencia) con mercado pago.
   </button>
   <button onclick="comprarWhatsApp()" class="btn-pago btn-whatsapp" style="width: 100%; padding: 12px; border: none; border-radius: 25px; background: #e2d1d8; color: #4a3b40; font-weight: 500; cursor: pointer;">
      Pedir por WhatsApp
@@ -273,37 +273,47 @@ function comprarWhatsApp() {
     window.open(urlWhatsApp, '_blank');
 }
 async function comprarMercadoPago() {
-    // 1. Verificar si el carrito tiene productos
-    if (!carrito || carrito.length === 0) {
-        alert("Tu carrito está vacío");
+    // 1. OBLIGAR a que llenen los datos antes de ir a Mercado Pago
+    const nombre = document.getElementById("nombre-cliente").value.trim();
+    const telefono = document.getElementById("telefono-cliente").value.trim();
+    const direccion = document.getElementById("direccion-cliente").value.trim();
+
+    if (!nombre || !telefono || !direccion) {
+        alert("⚠️ Por favor, completa todos tus datos de envío antes de proceder al pago con Mercado Pago.");
         return;
     }
 
-   // 2. Mapear tus productos al formato de Mercado Pago (Aplicando el 10% de descuento)
+    if (!carrito || carrito.length === 0) {
+        alert("Tu carrito está vacío.");
+        return;
+    }
+
+    // 2. Mapear tus productos al formato de Mercado Pago
     const itemsDelCarrito = carrito.map(prod => {
         const precioConDescuento = Number(prod.precio) * 0.90; // Resta el 10%
         return {
-            title: prod.nombre,       
-            quantity: prod.cantidad || 1,   
-            unit_price: precioConDescuento 
+            title: prod.nombre,
+            quantity: prod.cantidad || 1,
+            unit_price: precioConDescuento
         };
     });
 
     try {
         // 3. Llamar a tu función en Netlify
-        const response = await fetch('/.netlify/functions/crear-preferencia', {
+        const response = await fetch('/.netlify/functions/crear-preference', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({
-                items: itemsDelCarrito,
-                baseUrl: window.location.origin
+            body: JSON.stringify({ 
+                items: itemsDelCarrito, 
+                baseUrl: window.location.origin,
+                cliente: { nombre, telefono, direccion }
             })
         });
 
         const data = await response.json();
-        
+
         if (data.id) {
             // 4. Redirigir al checkout seguro
             window.location.href = `https://www.mercadopago.com.mx/checkout/v1/redirect?pref_id=${data.id}`;
