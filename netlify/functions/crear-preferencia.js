@@ -23,15 +23,15 @@ exports.handler = async (event, context) => {
 
     // Crear la preferencia con los datos del carrito
     const response = await preference.create({
-      body: {
-        items: body.items,
-        back_urls: {
-          success: `${body.baseUrl}/index.html`,
-          failure: `${body.baseUrl}/carrito.html`,
-          pending: `${body.baseUrl}/carrito.html`
-        },
-        auto_return: 'approved'
-      }
+  body: {
+            items: body.items,
+            back_urls: {
+                success: `${body.baseUrl}/gracias.html?status=success&nombre=${encodeURIComponent(body.cliente.nombre)}&telefono=${encodeURIComponent(body.cliente.telefono)}&direccion=${encodeURIComponent(body.cliente.direccion)}`,
+                failure: `${body.baseUrl}/carrito.html`,
+                pending: `${body.baseUrl}/carrito.html`
+            },
+            auto_return: 'approved'
+        }
     });
 
     return {
