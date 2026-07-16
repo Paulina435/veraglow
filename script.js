@@ -231,7 +231,7 @@ function comprarMercadoPago(){
         "https://wa.me/525643454896?text="+mensaje,
         "_blank"
     );
-
+}
 async function comprarMercadoPago() {
     // 1. Verificar si el carrito tiene productos
     if (!carrito || carrito.length === 0) {
