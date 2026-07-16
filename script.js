@@ -147,16 +147,29 @@ function mostrarCarrito(){
 
     <h2>Total: $${total.toFixed(2)} MXN</h2>
 
- <div class="acciones-carrito">
+ <div class="formulario-datos" style="text-align: left; margin: 20px 0; background: #fffafc; padding: 15px; border-radius: 8px; border: 1px solid #f3e5eb;">
+  <h4 style="color: #4a3b40; margin-bottom: 10px; font-size: 1rem;">Datos de Envío / Contacto</h4>
+  <div style="margin-bottom: 10px;">
+    <label style="font-size: 0.8rem; color: #7d6870; display:block;">Nombre Completo</label>
+    <input type="text" id="nombre-cliente" placeholder="Ej. Paulina Gómez" style="width:100%; padding: 8px; border: 1px solid #e2d1d8; border-radius: 6px;">
+  </div>
+  <div style="margin-bottom: 10px;">
+    <label style="font-size: 0.8rem; color: #7d6870; display:block;">Teléfono (WhatsApp)</label>
+    <input type="tel" id="telefono-cliente" placeholder="Ej. 5512345678" style="width:100%; padding: 8px; border: 1px solid #e2d1d8; border-radius: 6px;">
+  </div>
+  <div style="margin-bottom: 10px;">
+    <label style="font-size: 0.8rem; color: #7d6870; display:block;">Dirección Completa</label>
+    <input type="text" id="direccion-cliente" placeholder="Calle, Número, Colonia, C.P." style="width:100%; padding: 8px; border: 1px solid #e2d1d8; border-radius: 6px;">
+  </div>
+</div>
 
-    <button onclick="comprarMercadoPago()" class="btn-pagar">
-        💳 Pagar con Mercado Pago
-    </button>
-
-    <button onclick="comprarWhatsApp()" class="btn-whatsapp">
-        💬 Pedir por WhatsApp
-    </button>
-
+<div class="acciones-carrito" style="display: flex; flex-direction: column; gap: 10px;">
+  <button onclick="comprarMercadoPago()" class="btn-pago btn-mercadopago" style="width: 100%; padding: 12px; border: none; border-radius: 25px; background: #4a3b40; color: white; font-weight: 500; cursor: pointer;">
+     Animar y Pagar con Mercado Pago
+  </button>
+  <button onclick="comprarWhatsApp()" class="btn-pago btn-whatsapp" style="width: 100%; padding: 12px; border: none; border-radius: 25px; background: #e2d1d8; color: #4a3b40; font-weight: 500; cursor: pointer;">
+     Pedir por WhatsApp
+  </button>
 </div>
 
     `;
@@ -207,30 +220,57 @@ function eliminarProducto(index){
 // MERCADO PAGO
 // ===============================
 
-function comprarMercadoPago(){
 
-    alert("En el siguiente paso conectaremos Mercado Pago.");
+   
 
-}function comprarWhatsApp(){
+function comprarWhatsApp() {
+    // 1. Obtener datos del formulario que acabamos de crear
+    const nombre = document.getElementById("nombre-cliente").value.trim();
+    const telefono = document.getElementById("telefono-cliente").value.trim();
+    const direccion = document.getElementById("direccion-cliente").value.trim();
 
-    let mensaje = "¡Hola! Quiero realizar el siguiente pedido:%0A%0A";
+    // 2. Validar que los campos no estén vacíos
+    if (!nombre || !telefono || !direccion) {
+        alert("Por favor, completa todos tus datos de envío antes de continuar.");
+        return;
+    }
 
-    carrito.forEach(producto=>{
+    if (!carrito || carrito.length === 0) {
+        alert("Tu carrito está vacío.");
+        return;
+    }
 
-        mensaje +=
-        producto.nombre +
-        " x" +
-        producto.cantidad +
-        " - $" +
-        (producto.precio * producto.cantidad) +
-        " MXN%0A";
-
+    // 3. Formatear la lista de productos para el mensaje
+    let listaProductos = "";
+    carrito.forEach(prod => {
+        const cantidad = prod.cantidad || 1;
+        const subtotalItem = Number(prod.precio) * cantidad;
+        listaProductos += `• ${prod.nombre} (x${cantidad}) - $${subtotalItem} MXN\n`;
     });
 
-    window.open(
-        "https://wa.me/525643454896?text="+mensaje,
-        "_blank"
-    );
+    // Calcular totales con descuento del 10%
+    const subtotal = carrito.reduce((acc, prod) => acc + (Number(prod.precio) * (prod.cantidad || 1)), 0);
+    const descuento = subtotal * 0.10;
+    const total = subtotal - descuento;
+
+    // 4. Redactar el mensaje de confirmación súper limpio y profesional para VERA GLOW
+    const mensaje = `✨ *CONFIRMACIÓN DE PEDIDO - VERA GLOW* ✨\n\n` +
+                    `¡Hola! Me gustaría confirmar mi compra con los siguientes detalles:\n\n` +
+                    `👤 *Cliente:* ${nombre}\n` +
+                    `📞 *Teléfono:* ${telefono}\n` +
+                    `📍 *Dirección de envío:* ${direccion}\n\n` +
+                    `🛍️ *Detalle del Pedido:*\n${listaProductos}\n` +
+                    `📉 *Descuento aplicado (10%):* -$${descuento.toFixed(2)} MXN\n` +
+                    `💰 *Total a pagar:* $${total.toFixed(2)} MXN\n\n` +
+                    `*Estado:* Pendiente de confirmación de pago.`;
+
+    // Tu número de WhatsApp de VERA GLOW al que llegará el pedido (escríbelo sin espacios ni guiones)
+    // Nota: El prefijo de México es 52. Si es celular, pon 521 seguido de tus 10 dígitos.
+    const tuNumeroWhatsApp = "5643454896"; // <-- CAMBIA ESTO por tu número real
+
+    // 5. Crear enlace de WhatsApp y abrirlo en una pestaña nueva
+    const urlWhatsApp = `https://wa.me/${tuNumeroWhatsApp}?text=${encodeURIComponent(mensaje)}`;
+    window.open(urlWhatsApp, '_blank');
 }
 async function comprarMercadoPago() {
     // 1. Verificar si el carrito tiene productos
