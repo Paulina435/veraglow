@@ -237,7 +237,8 @@ async function comprarMercadoPago() {
     if (!carrito || carrito.length === 0) {
         alert("Tu carrito está vacío");
         return;
-    
+    }
+
     // 2. Mapear tus productos al formato de Mercado Pago
     const itemsDelCarrito = carrito.map(prod => ({
         title: prod.nombre,       
