@@ -239,12 +239,15 @@ async function comprarMercadoPago() {
         return;
     }
 
-    // 2. Mapear tus productos al formato de Mercado Pago
-    const itemsDelCarrito = carrito.map(prod => ({
-        title: prod.nombre,       
-        quantity: prod.cantidad,   
-        unit_price: Number(prod.precio) 
-    }));
+   // 2. Mapear tus productos al formato de Mercado Pago (Aplicando el 10% de descuento)
+    const itemsDelCarrito = carrito.map(prod => {
+        const precioConDescuento = Number(prod.precio) * 0.90; // Resta el 10%
+        return {
+            title: prod.nombre,       
+            quantity: prod.cantidad || 1,   
+            unit_price: precioConDescuento 
+        };
+    });
 
     try {
         // 3. Llamar a tu función en Netlify
