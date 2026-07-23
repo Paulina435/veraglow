@@ -769,58 +769,6 @@ line-height:1.7;
 
 
 
-/* ==========================
-PROMOCION APERTURA
-========================== */
-
-
-.promo-apertura{
-
-background:#f8dfe8;
-padding:35px 10%;
-text-align:center;
-
-}
-
-
-.promo-apertura h2{
-
-font-size:35px;
-margin-bottom:15px;
-
-}
-
-
-.promo-apertura p{
-
-color:#6d4c55;
-font-size:18px;
-
-}
-
-
-.promo-apertura strong{
-
-display:block;
-margin:15px;
-font-size:20px;
-color:#d98aa4;
-
-}
-
-
-.promo-apertura a{
-
-display:inline-block;
-background:#d98aa4;
-color:white;
-padding:12px 30px;
-border-radius:30px;
-text-decoration:none;
-
-}
-
-
 
 /* ==========================
 WHATSAPP FLOTANTE
